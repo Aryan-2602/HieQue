@@ -34,9 +34,9 @@ class DataExtraction:
 if __name__ == "__main__":
     data_extractor = DataExtraction(books_dir="/Users/aryanmaheshwari/stepsai-test/books",output_dir="/Users/aryanmaheshwari/stepsai-test/processed_books")
     book_paths = [
-        "/Users/aryanmaheshwari/stepsai-test/books/Artificial Intelligence_ A Modern Approach.pdf",
-        "/Users/aryanmaheshwari/stepsai-test/books/Jared_Diamond-Guns_Germs_and_Steel.pdf",
-        "/Users/aryanmaheshwari/stepsai-test/books/Neil A. Campbell, Jane B. Reece - Biology-Pearson Benjamin Cummings (2005) (2).pdf"
+        # "/Users/aryanmaheshwari/stepsai-test/books/Artificial Intelligence_ A Modern Approach.pdf",
+        #"/Users/aryanmaheshwari/stepsai-test/books/Jared_Diamond-Guns_Germs_and_Steel.pdf",
+        "/Users/aryanmaheshwari/stepsai-test/books/Selfish Gene.pdf"
     ]
 
     for book_path in book_paths:
