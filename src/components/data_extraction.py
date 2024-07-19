@@ -1,3 +1,4 @@
+
 import os
 import sys
 from src.exception import CustomException
@@ -5,8 +6,9 @@ from src.logger import logging
 import PyPDF2
 
 class DataExtraction:
-    def __init__(self, books_dir):
+    def __init__(self, books_dir,output_dir):
         self.books_dir = books_dir
+        self.output_dir = output_dir
 
     def extract_text_from_pdf(self, file_path):
         logging.info("The text has been extracted from the books")
