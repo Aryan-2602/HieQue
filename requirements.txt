@@ -2,4 +2,8 @@ numpy
 pandas 
 seaborn
 PyPDF2
--e .
+transformers
+nltk
+sentence-transformers
+scikit-learn
+# -e .
