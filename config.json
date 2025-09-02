@@ -1,0 +1,42 @@
+{
+  "retrieval": {
+    "default_model": "gpt-4-turbo-preview",
+    "max_tokens": 1000,
+    "temperature": 0.3,
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "min_chunk_length": 100,
+    "max_results": 10,
+    "gmm_components": 10
+  },
+  "vector_database": {
+    "chroma_persist_directory": "./chroma_db",
+    "pinecone_api_key": "",
+    "pinecone_environment": "",
+    "collection_name": "hieque_documents"
+  },
+  "semantic_search": {
+    "model_name": "all-MiniLM-L6-v2",
+    "similarity_threshold": 0.5,
+    "max_sequence_length": 512
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "logs/hieque.log",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "console_level": "INFO",
+    "file_level": "DEBUG"
+  },
+  "processing": {
+    "supported_formats": [".pdf", ".docx", ".txt", ".csv", ".xlsx"],
+    "batch_size": 100,
+    "parallel_processing": false,
+    "max_file_size_mb": 100
+  },
+  "performance": {
+    "enable_caching": true,
+    "cache_ttl": 3600,
+    "max_concurrent_queries": 5,
+    "query_timeout": 30
+  }
+}

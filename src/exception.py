@@ -1,19 +1,61 @@
-import sys
-from src.logger import logging
+"""
+Custom exceptions for the HieQue framework
+"""
 
-def error_message_detail(error, error_detail:sys):
-    _,_,exc_tb=error_detail.exc_info()
-    file_name=exc_tb.tb_frame.f_code.co_filename
-    error_message='Error occurred in the python script name[{0}] line number [{1}] error message[{2}]'.format(
-     file_name,exc_tb.tb_lineno,str(error)
-    )
-    return error_message
+class HieQueException(Exception):
+    """Base exception class for HieQue framework"""
     
-class CustomException(Exception):
-    def __init__(self,error_message,error_detail:sys):
-        super().__init__(error_message)
-        self.error_message=error_message_detail(error_message,error_detail=error_detail)
-        
+    def __init__(self, message: str, error_code: str = None, details: dict = None):
+        self.message = message
+        self.error_code = error_code
+        self.details = details or {}
+        super().__init__(self.message)
+    
     def __str__(self):
-        return self.error_message
+        if self.error_code:
+            return f"[{self.error_code}] {self.message}"
+        return self.message
+    
+    def to_dict(self):
+        """Convert exception to dictionary format"""
+        return {
+            "error": self.message,
+            "error_code": self.error_code,
+            "details": self.details
+        }
+
+
+class DocumentProcessingError(HieQueException):
+    """Raised when document processing fails"""
+    pass
+
+
+class RetrievalError(HieQueException):
+    """Raised when retrieval operations fail"""
+    pass
+
+
+class EmbeddingError(HieQueException):
+    """Raised when embedding generation fails"""
+    pass
+
+
+class ClusteringError(HieQueException):
+    """Raised when GMM clustering fails"""
+    pass
+
+
+class OpenAIError(HieQueException):
+    """Raised when OpenAI API operations fail"""
+    pass
+
+
+class VectorDatabaseError(HieQueException):
+    """Raised when vector database operations fail"""
+    pass
+
+
+class ConfigurationError(HieQueException):
+    """Raised when configuration is invalid"""
+    pass
     
